@@ -1,2 +1,2 @@
-def run(file: str) -> None:
+def run(file_name: str) -> None:
     pass
