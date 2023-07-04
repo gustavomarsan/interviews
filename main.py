@@ -4,7 +4,7 @@ from run import run
 
 def main() -> None:
     # Create parser
-    parser = argparse.ArgumentParser("Interviews")
+    parser = argparse.ArgumentParser("python3 main.py")
     subparsers = parser.add_subparsers()
 
     # create parser for the program run
