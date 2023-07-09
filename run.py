@@ -1,2 +1,4 @@
+import os
+
 def run(file_name: str) -> None:
-    pass
+    os.system(f"python3 programs/{file_name}.py")
