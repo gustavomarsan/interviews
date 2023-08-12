@@ -10,6 +10,6 @@ def factorial(n):
     
     return resultado
 
-fac= factorial(5)
+fac= factorial(int(input()))
 print (fac)
 
