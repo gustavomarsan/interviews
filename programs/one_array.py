@@ -44,7 +44,7 @@ def onearray(a,b):
             if error == 2 :
                 return False
     
-    #si llego hastaqui complio con condiciones true
+    #si llego hasta aqui complio con condiciones true
     return True
 
 
