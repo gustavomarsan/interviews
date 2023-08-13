@@ -29,6 +29,8 @@ def onearray(a,b):
         b=c
         print(a,b)
     
+
+    # comaenzar comparacion de string con diferencia de 1 caracter
     error = 0
     for i in range (len(b)):
         if error == 0:
@@ -41,7 +43,8 @@ def onearray(a,b):
             print("error number ",error)
             if error == 2 :
                 return False
-
+    
+    #si llego hastaqui complio con condiciones true
     return True
 
 
