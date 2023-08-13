@@ -6,29 +6,23 @@ import os
 
 def onearray(a,b):
 
-    dif =  len(a)-len(b)        #comparar arrays para sabe si añadio ó  elimino
-    if abs(dif) >1 :
+    if abs(len(a)-len(b)) >1 :  #comparar arrays para sabe si añadio ó  elimino
         return False
 
-    if dif == 0 :               #dif es cero, no elimino ni añadio, verificar si hubo un cambio
+    if len(a)-len(b) == 0 :      #dif es cero, no elimino ni añadio, verificar si hubo un cambio
         error = 0
         for i in range (len(a)):
             if  a[i] != b[i] :
                 error += 1
-                print("error numero ",error)
+                print("error number ",error)
                 if error == 2 :
                     return False
         return True
     
-
-
     if len(b) > len (a) :       # dejar el string mas grande en a
-        print(a,b)
         c=a
         a=b
         b=c
-        print(a,b)
-    
 
     # comaenzar comparacion de string con diferencia de 1 caracter
     error = 0
@@ -50,7 +44,5 @@ def onearray(a,b):
 
 
 os.system("clear")
-a="anastacio"
-b="anastac"        
-print(onearray(a,b))
+print(onearray(input(),input()))
 
