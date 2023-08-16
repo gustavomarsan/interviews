@@ -6,17 +6,6 @@ def onearray(a, b):
     if abs(len(a) - len(b)) > 1:  # comparar arrays para sabe si añadio ó  elimino
         return False
 
-    # dif es cero, no elimino ni añadio, verificar si hubo un cambio
-    if len(a) - len(b) == 0:
-        error = 0
-        for i in range(len(a)):
-            if a[i] != b[i]:
-                error += 1
-                print("error number ", error)
-                if error == 2:
-                    return False
-        return True
-
     if len(b) > len(a):  # dejar el string mas grande en a
         c = a
         a = b
@@ -25,7 +14,7 @@ def onearray(a, b):
     # comaenzar comparacion de string con diferencia de 1 caracter
     error = 0
     for i in range(len(b)):
-        n = i if error == 0 else i + 1
+        n = i if error == 0 or diffß == 0 else i + 1
 
         if a[n] != b[i]:
             error += 1
