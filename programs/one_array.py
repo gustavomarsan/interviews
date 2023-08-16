@@ -1,8 +1,6 @@
 # debido a que a se pueden resalizar 3 tipos de ediciones a una lista (agregar, modificar o eliminar)
 # dados 2 strings, comparar si uno puede ser reasultado de un movimiento del otro (solo un movimiento)
 
-import os
-
 
 def onearray(a, b):
     if abs(len(a) - len(b)) > 1:  # comparar arrays para sabe si añadio ó  elimino
@@ -27,10 +25,7 @@ def onearray(a, b):
     # comaenzar comparacion de string con diferencia de 1 caracter
     error = 0
     for i in range(len(b)):
-        if error == 0:
-            n = i
-        else:
-            n = i + 1
+        n = i if error == 0 else i + 1
 
         if a[n] != b[i]:
             error += 1
@@ -42,5 +37,4 @@ def onearray(a, b):
     return True
 
 
-os.system("clear")
 print(onearray(input(), input()))
