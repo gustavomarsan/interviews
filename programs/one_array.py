@@ -3,7 +3,10 @@
 
 
 def onearray(a, b):
-    if abs(len(a) - len(b)) > 1:  # comparar arrays para sabe si añadio ó  elimino
+    diff = len(a) - len(b)
+
+    # comparar arrays para saber si hay mas de 1 digito de diferencia y salir en caso que si
+    if abs(diff) > 1:
         return False
 
     if len(b) > len(a):  # dejar el string mas grande en a
@@ -11,12 +14,12 @@ def onearray(a, b):
         a = b
         b = c
 
-    # comaenzar comparacion de string con diferencia de 1 caracter
+    # comenzar comparacion de strings de igual tamaño o con diferencia
     error = 0
-    for i in range(len(b)):
-        n = i if error == 0 or diffß == 0 else i + 1
-
-        if a[n] != b[i]:
+    for i in range(len(a)):
+        # si los strings tiene diferecia de tamaño mueve apuntadores cuando encuentra el primer cambio
+        n = i if error == 0 or diff == 0 else i - 1
+        if a[i] != b[n]:
             error += 1
             print("error number ", error)
             if error == 2:
