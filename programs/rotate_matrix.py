@@ -4,12 +4,12 @@
 def rotate(a):
     l = len(a) - 1
     for row in range(len(a) // 2):
-        for col in range((row), l - row):
+        for col in range(row, l - row):
             temp = a[row][col]
             a[row][col] = a[l - col][row]
-            a[l - col][row] = a[(l - row)][(l - col)]
-            a[(l - row)][(l - col)] = a[col][(l - row)]
-            a[col][(l - row)] = temp
+            a[l - col][row] = a[l - row][l - col]
+            a[l - row][l - col] = a[col][l - row]
+            a[col][l - row] = temp
 
     for i in range(len(a)):
         print(a[i])
