@@ -13,7 +13,7 @@ def string_rotation(s1, s2):
     for i in s2:
         l2.append(i)
 
-    for i in range(len(l2) - 1):
+    for i in range(len(l2) - 1):  # rotate l1 char by char
         l2.append(l2[0])
         l2.pop(0)
         if l2 == l1:
