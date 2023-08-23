@@ -26,7 +26,7 @@ def stringCompression(a):
     if len(bstring) < len(a):
         return bstring
     else:
-        return "No change"
+        return a
 
 
 print(stringCompression(input()))
