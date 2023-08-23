@@ -3,15 +3,13 @@
 
 def zero(a):
     # seek a cell with 0 and storage the column in a list and de row in a list
-    cols = []
-    rows = []
+    cols = set()
+    rows = set()
     for row in range(len(a)):
         for col in range(len(a[row])):
             if a[row][col] == 0:
-                if col not in cols:
-                    cols.append(col)
-                if row not in rows:
-                    rows.append(row)
+                cols.add(col)
+                rows.add(row)
 
     # change al columns with 0 using numbers sortage in cols
     for col in cols:
