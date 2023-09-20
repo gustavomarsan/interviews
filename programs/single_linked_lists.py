@@ -15,3 +15,15 @@ class Node:
                     print("--->", end=" ")
                 temp = temp.next
             print()
+
+    def list_builder(self):
+        print("hola")
+        for i in range(int(input("How many nodes? "))):
+            nn = Node(input(f"Node {i} : "))
+            if i == 0:
+                n = nn
+                h = n
+                h.head = n
+            n.next = nn
+            n = n.next
+        return h

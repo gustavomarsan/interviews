@@ -20,15 +20,10 @@ def RemDups(self):
             p1 = p1.next
 
 
-for i in range(int(input("How many nodes to dups? "))):
-    nn = Node(input(f"Node {i} : "))
-    if i == 0:
-        n = nn
-        h = n
-        h.head = n
-    n.next = nn
-    n = n.next
-
+h = Node(None)
+print(h.__str__)
+h = h.list_builder()
 h.display()
 RemDups(h)
+print(h.__str__)
 h.display()
