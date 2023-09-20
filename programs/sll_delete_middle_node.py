@@ -1,43 +1,28 @@
 # in a single linked list delete a node in de middle, not the first, not de last, not necesary the exact middle
 
-
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-        self.head = None
-
-    def display(self):
-        if self.head is None:
-            print("Linked List is empty")
-        else:
-            temp = self.head
-            while temp:
-                print(temp.data, end="  ")
-                if temp.next:
-                    print("--->", end=" ")
-                temp = temp.next
-            print()
+from single_linked_lists import Node
 
 
-for i in range(int(input("How many nodes? "))):
-    nn = Node(input(f"Node {i} : "))
-    if i == 0:
-        n = nn
-        h = n
-        h.head = n
-    n.next = nn
-    n = n.next
-
-
+h = Node(None)
+h = h.list_builder()
 h.display()
 
 k = input("Which element in the middle do You want to delete?: ")
 
+found = 0
 n = h.head
 while n.next:
-    if n.next.data == k:
+    # this if checks is next.data element is equal to elenment to delete and
+    # n.next.next  validation is because the last element can´t be deleted
+    if n.next.data == k and n.next.next:
         n.next = n.next.next
+        found = 1
+        break  # found the element to delete and break
     n = n.next
+
+if found == 0:
+    print("element not found in de middle")
+else:
+    print("element found and deleted")
 
 h.display()
