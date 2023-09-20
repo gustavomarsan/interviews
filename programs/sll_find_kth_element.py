@@ -1,35 +1,9 @@
-# In a single linked list find the kth elemment from the last
+# In a single linked list find the kth elemment from the last, beginning in 0
 
+from single_linked_lists import Node
 
-class Node:
-    def __init__(self, data):
-        self.data = data
-        self.next = None
-        self.head = None
-
-    def display(self):
-        if self.head is None:
-            print("Linked List is empty")
-        else:
-            temp = self.head
-            while temp:
-                print(temp.data, end="  ")
-                if temp.next:
-                    print("--->", end=" ")
-                temp = temp.next
-            print()
-
-
-for i in range(int(input("How many nodes? "))):
-    nn = Node(input(f"Node {i} : "))
-    if i == 0:
-        n = nn
-        h = n
-        h.head = n
-    n.next = nn
-    n = n.next
-
-
+h = Node(None)
+h = h.list_builder()
 h.display()
 
 k = int(input("Kth element to find from the last: "))
@@ -37,10 +11,10 @@ k = int(input("Kth element to find from the last: "))
 p1 = h.head  # p1 is ponter 1
 p2 = p1
 
-for n in range(k):
+for n in range(k):  # p2 walks k elements to get diference k vs. p1
     p2 = p2.next
 
-while p2.next:
+while p2.next:  # when p2 is in last element, p1 is in kth element from the last
     p1 = p1.next
     p2 = p2.next
 
