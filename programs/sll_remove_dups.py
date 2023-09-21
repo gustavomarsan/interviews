@@ -1,8 +1,8 @@
 from single_linked_lists import Node
 
 
-def RemDups(self):
-    p1 = self.head  # p1 is ponter 1
+def remove_duplicates(head: Node) -> None:
+    p1 = head  # p1 is ponter 1
     while p1.next:
         p2 = p1  # p2 is ponter 2
         while p2.next:
@@ -20,10 +20,7 @@ def RemDups(self):
             p1 = p1.next
 
 
-h = Node(None)
-print(h.__str__)
-h = h.list_builder()
-h.display()
-RemDups(h)
-print(h.__str__)
-h.display()
+h = Node.list_builder()
+print(h)
+remove_duplicates(h)
+print(h)
