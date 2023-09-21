@@ -16,7 +16,7 @@ while p1.next:  # p1 walk sll
         continue
     p2 = p1.next  # p2 = poniter 1
     while p2:  # p2 walk sll
-        # compare p1 and p2 and if necesary switch them
+        # compare p1 and p2 and if necesary switch them until end
         if p2.data < p1.data and p2.data < x:
             temp = p1.data
             p1.data = p2.data
