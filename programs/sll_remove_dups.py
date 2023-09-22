@@ -3,7 +3,7 @@ from single_linked_lists import Node
 
 def remove_duplicates(head: Node) -> None:
     p1 = head  # p1 is ponter 1
-    while p1.next:
+    while p1 and p1.next:
         p2 = p1  # p2 is ponter 2
         while p2.next:
             if p1.data == p2.next.data:
@@ -22,5 +22,6 @@ def remove_duplicates(head: Node) -> None:
 
 h = Node.list_builder()
 print(h)
+
 remove_duplicates(h)
 print(h)
