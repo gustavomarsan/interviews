@@ -3,14 +3,13 @@
 from single_linked_lists import Node
 
 
-h = Node(None)
-h = h.list_builder()
-h.display()
+h = Node.list_builder()
+print(h)
 
-k = input("Which element in the middle do You want to delete?: ")
+k = int(input("Which element in the middle do You want to delete?: "))
 
 found = 0
-n = h.head
+n = h
 while n.next:
     # this if checks is next.data element is equal to elenment to delete and
     # n.next.next  validation is because the last element can´t be deleted
@@ -25,4 +24,4 @@ if found == 0:
 else:
     print("element found and deleted")
 
-h.display()
+print(h)
