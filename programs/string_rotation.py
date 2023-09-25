@@ -1,29 +1,27 @@
-# Given 2 strings check if s2 is a rotation of s1 using one call
-
-
 def string_rotation(s1, s2):
+    # if s1 and s1 are equal, s2 is not an rotation of s1
     if s1 == s2:
-        return True
+        return False
 
-    # put the strings in lists to work in lists not in strings
-    l1 = []
-    for i in s1:
-        l1.append(i)
-    l2 = []
-    for i in s2:
-        l2.append(i)
+    # if s1 and s2 have not the same len, then s2 is not a rotatiion of s1
+    if len(s1) != len(s2):
+        return False
 
-    for i in range(len(l2) - 1):
-        l2.append(l2[0])
-        l2.pop(0)
-        if l2 == l1:
+    # loop j is to initialize pointer in s2 in diferent place every cycle
+    for j in range(len(s2)):
+        equal = True
+        # loop  i  is to walk pointers
+        for i in range(len(s1)):
+            # walk p1 and p2 1 by 1 to compare and begining in diferent points every for i
+            if s1[i] != s2[((i + j) % len(s1))]:
+                equal = False
+                break
+        # if loop i was completed it means the complete cycle was equal s1 and s2
+        if equal:
             return True
 
     # if the program never match
     return False
-
-    # if s1 == s2 :
-    #    return True
 
 
 print(string_rotation(input(), input()))
