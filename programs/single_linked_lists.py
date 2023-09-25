@@ -1,28 +1,18 @@
 class Node:
-    def __init__(self, data):
+    def __init__(self, data: int) -> None:
         self.data = data
         self.next = None
-        self.head = None
 
-    def display(self):
-        if self.head is None:
-            print("Linked List is empty")
-        else:
-            temp = self.head
-            while temp:
-                print(temp.data, end="  ")
-                if temp.next:
-                    print("--->", end=" ")
-                temp = temp.next
-            print()
+    def __str__(self) -> str:
+        return str(self.data) + " -> " + str(self.next)
 
-    def list_builder(self):
-        for i in range(int(input("How many nodes? "))):
-            nn = Node(input(f"Node {i} : "))
-            if i == 0:
-                n = nn
-                h = n
-                h.head = n
-            n.next = nn
+    @staticmethod
+    def list_builder():
+        nodes = int(input("How many nodes? "))
+        head = Node(None)
+        n = head
+        for i in range(nodes):
+            new_node = Node(int(input(f"Node {i} : ")))
+            n.next = new_node
             n = n.next
-        return h
+        return head.next
