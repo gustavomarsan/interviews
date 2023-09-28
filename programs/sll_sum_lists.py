@@ -12,25 +12,40 @@ def sum_nodes(a: Node, b: Node):
     head = Node(0)
     resul = head
     ten = 0
-    while a:
-        sum = a.data + b.data + ten
+
+    while a or b or ten:
+        if a:
+            valuea = a.data
+        else:
+            valuea = 0
+        if b:
+            valueb = b.data
+        else:
+            valueb = 0
+        sum = valuea + valueb + ten
+        ten = 0
+
         if sum > 9:
             sum -= 10
             ten = 1
-        else:
-            ten = 0
 
         new_node = Node(sum)
         resul.next = new_node
         resul = resul.next
-        if a.next:
-            a = a.next
-        else:
-            if ten == 1:
-                new_node = Node(1)
-                resul.next = new_node
 
-            break
+        try:
+            a.next
+        except:
+            a = None
+        else:
+            a = a.next
+
+        try:
+            b.next
+        except:
+            b = None
+        else:
+            b = b.next
 
     return head.next
 
