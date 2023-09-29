@@ -7,7 +7,6 @@ from single_linked_lists import Node
 
 # I have not element before I want to delete, I will replace values with next values  and delete next
 def delete_element(element: Node):
-    print("Hola")
     element.data = element.next.data
     element.next = element.next.next
 
@@ -17,7 +16,7 @@ print(h)
 
 k = int(input("Which element in the middle do You want to delete?: "))
 
-found = 0
+found = False
 n = h
 # Search element to delete
 while n and n.next:
