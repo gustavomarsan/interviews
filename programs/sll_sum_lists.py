@@ -6,23 +6,20 @@ from single_linked_lists import Node
 
 
 def sum_nodes(a: Node, b: Node):
-    print(a)
-    print(b)
-
     head = Node(0)
     resul = head
     ten = 0
 
     while a or b or ten:
         if a:
-            valuea = a.data
+            value_a = a.data
         else:
-            valuea = 0
+            value_a = 0
         if b:
             valueb = b.data
         else:
             valueb = 0
-        sum = valuea + valueb + ten
+        sum = value_a + valueb + ten
         ten = 0
 
         if sum > 9:
@@ -54,4 +51,6 @@ a = Node.list_builder()
 b = Node.list_builder()
 
 s = sum_nodes(a, b)
+print(a)
+print(b)
 print(s)
