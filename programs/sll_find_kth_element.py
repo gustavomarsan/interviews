@@ -20,6 +20,9 @@ def find_element(k: int, h: Node):
 h = Node.list_builder()
 print(h)
 
-k = int(input("Kth element to find from the last: "))
+if h != None:
+    k = int(input("Kth element to find from the last: "))
 
-print(find_element(k, h))
+    print(find_element(k, h))
+else:
+    print("Nothing to do, bye")
