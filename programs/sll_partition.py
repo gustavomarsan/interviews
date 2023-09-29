@@ -18,10 +18,8 @@ def partition(h: Node, x: int):
             great_nodes.next = Node(h.data)
             great_nodes = great_nodes.next
 
-        if h.next:
-            h = h.next
-        else:
-            break
+        h = h.next
+
     less_nodes.next = head_great.next
     return head_less.next
 
