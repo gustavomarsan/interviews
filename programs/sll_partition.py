@@ -12,10 +12,10 @@ def partition(h: Node, x: int):
 
     while h:
         if h.data < x:
-            less_nodes.next = Node(h.data)
+            less_nodes.next = h
             less_nodes = less_nodes.next
         else:
-            great_nodes.next = Node(h.data)
+            great_nodes.next = h
             great_nodes = great_nodes.next
 
         h = h.next
