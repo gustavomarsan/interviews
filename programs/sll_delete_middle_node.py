@@ -25,13 +25,11 @@ while n:
     # this if checks is next.data element is equal to element to delete and
     # n.next.next  validation is because the last element can´t be deleted
     if n.data == k and n.next is not None:
-        element = n
+        delete_element(n)
+        print(h)
         found = True
         break  # found the element to delete and break
     n = n.next
 
-if found:
-    delete_element(element)
-    print(h)
-else:
+if not found:
     print("element not found in de middle")
