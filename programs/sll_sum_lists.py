@@ -16,10 +16,10 @@ def sum_nodes(a: Node, b: Node):
         else:
             value_a = 0
         if b:
-            valueb = b.data
+            value_b = b.data
         else:
-            valueb = 0
-        sum = value_a + valueb + ten
+            value_b = 0
+        sum = value_a + value_b + ten
         ten = 0
 
         if sum > 9:
@@ -30,18 +30,9 @@ def sum_nodes(a: Node, b: Node):
         resul.next = new_node
         resul = resul.next
 
-        try:
-            a.next
-        except:
-            a = None
-        else:
+        if a:
             a = a.next
-
-        try:
-            b.next
-        except:
-            b = None
-        else:
+        if b:
             b = b.next
 
     return head.next
