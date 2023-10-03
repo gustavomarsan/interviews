@@ -20,7 +20,9 @@ def partition(h: Node, x: int):
 
         h = h.next
 
+    # the last node in less_nodes point to the first node in great_nodes, the last node in great_nodes point to None
     less_nodes.next = head_great.next
+    great_nodes.next = None
     return head_less.next
 
 
