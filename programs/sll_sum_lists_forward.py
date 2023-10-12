@@ -42,7 +42,7 @@ def sum_nodes(a: Node, b: Node):
             head_b.next = temp
 
     head = Node(0)
-    result = head
+    resul = head
 
     return sum_one_ten(head_a, head_b, result)
 
