@@ -5,21 +5,20 @@
 from single_linked_lists import Node
 
 
-def sum_one_ten(a: Node, b: Node, result: Node):
-    if a.next:
-        sum_one_ten(a.next, b.next, result)
+def sum_one_ten(a: Node, b: Node, is_first: bool = False) -> Node:
+    if a is None:
+        return None
 
-    new_node = Node(a.data + b.data + result.data)
-    temp = result.next
-    result.next = new_node
-    new_node.next = temp
-    if result.next.data > 9:  # manage the ten in result.head
-        result.next.data -= 10
-        result.data = 1
-    else:
-        result.data = 0
-        return result.next
-    return result
+    node = Node(a.data + b.data, sum_one_ten(a.next, b.next))
+
+    if node.next is not None and node.next.data > 9:
+        node.data += 1
+        node.next.data -= 10
+
+    if is_first and node.data > 9:
+        node.data -= 10
+        return Node(1, node)
+    return node
 
 
 def sum_nodes(a: Node, b: Node):
@@ -41,10 +40,7 @@ def sum_nodes(a: Node, b: Node):
             head_b = Node(0)
             head_b.next = temp
 
-    head = Node(0)
-    result = head
-
-    return sum_one_ten(head_a, head_b, result)
+    return sum_one_ten(head_a, head_b, True)
 
 
 a = Node.list_builder()
