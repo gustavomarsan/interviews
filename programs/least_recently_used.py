@@ -72,6 +72,7 @@ print(n.site)
 
 n = Node.next_site(n)
 n = Node.next_site(n)
+n = Node.next_site(n)
 
 print(head.next)
 print(n.site)
