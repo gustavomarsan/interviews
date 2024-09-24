@@ -127,7 +127,8 @@ def substrCount(n, s):
 s="asasd"
 print(substrCount(len(s),s))
 
-"""
+
+from math import sqrt
 
 def commonChild(s1, s2):
     l1 = [x for x in s1]
@@ -172,13 +173,42 @@ def commonChild(s1, s2):
     return long
 
 
-            
-    
-
 #s1 = "WEWOUCUIDGCGTRMEZEPXZFEJWISRSBBSYXAYDFEJJDLEBVHHKS"
 #s2 = "FDAGCXGKCTKWNECHMRXZWMLRYUCOCZHJRRJBOAJOQJZZVUYXIC"
 #s1 = "HARRY"
 #s2 = "SALLY"
 #print(commonChild(s1, s2))
 
+s1 = [1, 4, 16, 64]
 
+#print(s1[3:6].index("a"))
+#print(s1.count("s"))
+
+number = 16
+raiz = sqrt(number)
+
+if raiz in s1:
+    print("found")
+else:
+    print("not foun")
+
+print(s1[0:2].count(raiz))
+
+"""
+def list_media(a: list)-> int:
+    a.sort()
+    if len(a) % 2 == 1:
+        a.pop(len(a)//2)
+        
+        print(a)
+        sum = 0
+        for n in range(len (a)):
+            sum += a[n]
+        average = sum / len(a)
+        return average
+    else :
+        i = int(len(a) / 2) -1
+        return (a[i] + a[i+1]) / 2
+
+
+print(list_media([1,2,5,6]))
