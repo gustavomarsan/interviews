@@ -18,12 +18,12 @@ k = int(input("Which element in the middle do You want to delete?: "))
 
 found = False
 n = h
-# firs element can't be deleted
+# firs element can't be deleted then it is ignored
 n = n.next
 # Search element to delete
 while n:
-    # this if checks is next.data element is equal to element to delete and
-    # n.next.next  validation is because the last element can´t be deleted
+    # this if checks is n.data element is equal to element to delete and
+    # n.next.  validation is because the last element can´t be deleted
     if n.data == k and n.next is not None:
         delete_element(n)
         print(h)

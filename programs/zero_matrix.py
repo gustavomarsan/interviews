@@ -10,7 +10,7 @@ def zero(a):
             if a[row][col] == 0:  # add col and row to a set when found a 0
                 cols.add(col)
                 rows.add(row)
-
+    print(cols, rows)
     # these for walk all the matrix and move to 0 if row or col is in sets
     for row in range(len(a)):
         for col in range(len(a[0])):
@@ -27,7 +27,7 @@ a = [
     [31, 32, 33, 0, 35, 36, 37],
     [41, 42, 43, 44, 45, 46, 47],
     [51, 52, 53, 54, 55, 56, 57],
-    [61, 62, 63, 65, 65, 66, 67],
+    [61, 62, 63, 0, 65, 66, 67],
 ]
 
 zero(a)

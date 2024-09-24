@@ -9,19 +9,18 @@ def sum_one_ten(a: Node, b: Node, is_first: bool = False) -> Node:
     if a is None:
         return None
 
-    node = Node(a.data + b.data, sum_one_ten(a.next, b.next))
+    node = Node(a.data + b.data, sum_one_ten(a.next, b.next, False))    # recursion. Create Node(data, next) 
 
-    if node.next is not None and node.next.data > 9:
+    if node.next is not None and node.next.data > 9:    # data > 10, send +1 to a previus ten
         node.data += 1
         node.next.data -= 10
 
-    if is_first and node.data > 9:
+    if is_first and node.data > 9:          # in case the fisrt node.data  > 10 create a previus Node with a ten
         node.data -= 10
         return Node(1, node)
     return node
 
-
-def sum_nodes(a: Node, b: Node):
+def sum_nodes(a: Node, b: Node):    # this method make the 2 sll to have the same lenght by filling with 0s and de beginning
     head_a = a
     head_b = b
 
@@ -39,9 +38,7 @@ def sum_nodes(a: Node, b: Node):
             temp = head_b
             head_b = Node(0)
             head_b.next = temp
-
-    return sum_one_ten(head_a, head_b, True)
-
+    return sum_one_ten(head_a, head_b, True)    # send the 2 sll with the same lenght
 
 a = Node.list_builder()
 b = Node.list_builder()

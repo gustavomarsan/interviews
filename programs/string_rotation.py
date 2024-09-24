@@ -1,4 +1,6 @@
-def string_rotation(s1, s2):
+# chech if one stirng is a rotation from other string
+
+def string_rotation(s1, s2) -> bool :       # this function will compare char by char changing the pointer to initialize
     # if s1 and s1 are equal, s2 is not an rotation of s1
     if s1 == s2:
         return False
@@ -23,5 +25,18 @@ def string_rotation(s1, s2):
     # if the program never match
     return False
 
+def str_rotation(s1, s2) -> bool :      # this function will find fi is a rotation by concatening s1+s1
+                                        # if s2 is in (s1+s1) then it bis true
+    x = s1+s1
+    s3 = "".join(x)
+    search = s3.find(s2)
+    if search ==  -1 :
+        return False
+    return True
 
-print(string_rotation(input(), input()))
+
+
+s1=input()
+s2=input()
+print(string_rotation(s1, s2))
+print(str_rotation(s1, s2))

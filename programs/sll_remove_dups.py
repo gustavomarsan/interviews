@@ -7,7 +7,7 @@ def remove_duplicates(head: Node) -> None:
         p2 = p1  # p2 is ponter 2
         while p2.next:
             if p1.data == p2.next.data:
-                if p2.next.next == None:
+                if p2.next.next == None:    # in case you are deleting the last node
                     p2.next = None  # p2
                     break
                 else:
@@ -16,7 +16,7 @@ def remove_duplicates(head: Node) -> None:
             p2 = p2.next
 
         # Maybe when loop while p1.next began, p1.next had some value and after change to None. Validate
-        if p1.next != None:
+        if p1.next :
             p1 = p1.next
 
 

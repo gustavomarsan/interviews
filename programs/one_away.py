@@ -2,7 +2,7 @@
 # dados 2 strings, comparar si uno puede ser reasultado de un movimiento del otro (solo un movimiento)
 
 
-def onearray(a, b):
+def oneaway(a, b):
     diff = len(a) - len(b)
 
     # comparar arrays para saber si hay mas de 1 digito de diferencia y salir en caso que si
@@ -18,7 +18,12 @@ def onearray(a, b):
     error = 0
     for i in range(len(a)):
         # si los strings tiene diferecia de tamaño mueve apuntadores cuando encuentra el primer cambio
-        n = i if error == 0 or diff == 0 else i - 1
+        
+        if error == 0 or diff == 0 : 
+            n = i 
+        else : 
+            i - 1
+        
         if a[i] != b[n]:
             error += 1
             print("error number ", error)
@@ -29,4 +34,4 @@ def onearray(a, b):
     return True
 
 
-print(onearray(input(), input()))
+print(oneaway(input(), input()))

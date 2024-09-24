@@ -4,7 +4,7 @@
 from single_linked_lists import Node
 
 
-def partition(h: Node, x: int):
+def partition(h: Node, x: int) -> Node:     # this method creates 2 sll, 1 is fot the lower number 2 for the greater number
     less_nodes = Node(0)
     head_less = less_nodes
     great_nodes = Node(0)
@@ -20,14 +20,13 @@ def partition(h: Node, x: int):
 
         h = h.next
 
+    # then conect the two sll
     # the last node in less_nodes point to the first node in great_nodes, the last node in great_nodes point to None
     less_nodes.next = head_great.next
     great_nodes.next = None
     return head_less.next
 
-
 h = Node.list_builder()
-
 x = int(input("Which element wants to be the partition reference: "))
 
 print(h)

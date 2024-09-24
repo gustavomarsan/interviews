@@ -1,11 +1,12 @@
-# rotate 90 degrees a N X N matrix in his place
+# rotate 90 degrees clockwise a N X N matrix in his place
 
 
 def rotate(a):
-    l = len(a) - 1
-    for row in range(len(a) // 2):
-        for col in range(row, l - row):
-            temp = a[row][col]
+    l = len(a) - 1                      
+    for row in range(len(a) // 2):          # only half of the rows because the rotation is all around the matrix 
+        for col in range(row, l - row):     #  from row to (l - row)  becuase the npointer is walking to inside the matrix
+                                            # the next lines substite the values in for corners and walking clockwise
+            temp = a[row][col]      
             a[row][col] = a[l - col][row]
             a[l - col][row] = a[l - row][l - col]
             a[l - row][l - col] = a[col][l - row]
@@ -13,7 +14,6 @@ def rotate(a):
 
     for i in range(len(a)):
         print(a[i])
-
 
 a = [
     [11, 12, 13, 14, 15, 16],
