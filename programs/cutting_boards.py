@@ -21,33 +21,35 @@ def boardCutting(cost_y: list, cost_x: list)-> int:
     cost = 0
     cut_y = 0
     cut_x = 0
-    cost_y.sort(reverse=True)
-    cost_x.sort(reverse=True)
+    cost_y.sort()
+    cost_x.sort()
     while cost_y and cost_x:
-        if cost_y[0] > cost_x[0] or (cost_y[0] == cost_x[0] and cut_x < cut_y):
-            c = cost_y.pop(0)
+        if cost_y[-1] > cost_x[-1] or (cost_y[-1] == cost_x[-1] and cut_x < cut_y):
+            c = cost_y.pop()
             cost += c + c * cut_x
             cut_y += 1
             continue
         else:
-            c = cost_x.pop(0)
+            c = cost_x.pop()
             cost += c + c * cut_y
             cut_x += 1
             continue
     while cost_y or cost_x:
         if cost_y and not cost_x:
-            c = cost_y.pop(0)
+            c = cost_y.pop()
             cost += c + c * cut_x
             cut_y += 1
         if not cost_y and cost_x:
-            c = cost_x.pop(0)
+            c = cost_x.pop()
             cost += c + c * cut_y
             cut_x += 1
     return cost
             
         
 
-cost_y = [71, 58, 61, 51, 33, 3, 43, 48, 94, 30, 29, 40, 59, 83, 12, 43, 64, 69, 64, 65, 42, 57, 40, 72, 64, 98, 98, 47, 56, 6, 85, 79, 65, 46, 30, 98, 49, 25, 98, 96, 7, 27, 88, 66, 10, 0, 62, 26, 69, 78, 92, 64, 87, 84, 88, 51, 35]
-cost_x = [87, 50, 91, 45, 35, 22, 62, 81, 53, 61, 83, 30, 59, 31, 38, 39, 19, 56, 1, 20, 70, 28, 41, 48, 72, 57, 35, 56, 46, 39, 91, 85, 41, 34, 30, 77, 57, 93, 10]
+#cost_y = [71, 58, 61, 51, 33, 3, 43, 48, 94, 30, 29, 40, 59, 83, 12, 43, 64, 69, 64, 65, 42, 57, 40, 72, 64, 98, 98, 47, 56, 6, 85, 79, 65, 46, 30, 98, 49, 25, 98, 96, 7, 27, 88, 66, 10, 0, 62, 26, 69, 78, 92, 64, 87, 84, 88, 51, 35]
+#cost_x = [87, 50, 91, 45, 35, 22, 62, 81, 53, 61, 83, 30, 59, 31, 38, 39, 19, 56, 1, 20, 70, 28, 41, 48, 72, 57, 35, 56, 46, 39, 91, 85, 41, 34, 30, 77, 57, 93, 10]
+cost_y = [1,1,2,3,4] 
+cost_x = [1,2,4]
 
 print(boardCutting(cost_y, cost_x))
