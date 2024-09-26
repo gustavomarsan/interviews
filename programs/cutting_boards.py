@@ -21,26 +21,26 @@ def boardCutting(cost_y: list, cost_x: list)-> int:
     cost = 0
     cut_y = 0
     cut_x = 0
-    cost_y.sort(reverse=True)
-    cost_x.sort(reverse=True)
+    cost_y.sort()
+    cost_x.sort()
     while cost_y and cost_x:
-        if cost_y[0] > cost_x[0] or (cost_y[0] == cost_x[0] and cut_x < cut_y):
-            c = cost_y.pop(0)
+        if cost_y[-1] > cost_x[-1] or (cost_y[-1] == cost_x[-1] and cut_x < cut_y):
+            c = cost_y.pop()
             cost += c + c * cut_x
             cut_y += 1
             continue
         else:
-            c = cost_x.pop(0)
+            c = cost_x.pop()
             cost += c + c * cut_y
             cut_x += 1
             continue
     while cost_y or cost_x:
         if cost_y and not cost_x:
-            c = cost_y.pop(0)
+            c = cost_y.pop()
             cost += c + c * cut_x
             cut_y += 1
         if not cost_y and cost_x:
-            c = cost_x.pop(0)
+            c = cost_x.pop()
             cost += c + c * cut_y
             cut_x += 1
     return cost
