@@ -195,14 +195,3 @@ else:
 print(s1[0:2].count(raiz))
 
 """
-s = "09:07:24PM"
-
-a = str(int(s[0:2])+12)+s[2:8]
-print(a)
-
-b = []
-
-if not b:
-    print("hello")
-else:
-    print("otra cosa")
