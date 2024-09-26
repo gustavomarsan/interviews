@@ -24,16 +24,11 @@ def list_media(a: list)-> int:
     a.sort()
     if len(a) % 2 == 1:
         a.pop(len(a)//2)
-        sum = 0
-        for n in range(len(a)):
-            sum += a[n]
-        return sum/len(a)
+        return sum(a)/len(a)
     else:
         i = int(len(a)/2) - 1
         return (a[i] + a[i+1]) / 2
         
-    
-
 def activityNotifications(expenditure: list, d: int) -> int:
     # Write your code here
     p1 = 0
