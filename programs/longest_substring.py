@@ -3,7 +3,6 @@ Given string, find the longest substring without repeated characters ans return 
 
 longest_substring("abcabcbb") -> 3
 
-
 "abcaa"
 
 p1 4
@@ -12,7 +11,6 @@ my_set {a }
 max_len 3
 
 """
-
 
 def max_substr(a: str)-> int :
     my_set = set()

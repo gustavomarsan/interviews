@@ -9,6 +9,7 @@ heapify(numbers)
 print(numbers)
 
 heappush(numbers, 1)
+heappush(numbers, 12)
 print(numbers)
 
 x = heappop(numbers)
