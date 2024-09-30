@@ -195,20 +195,3 @@ else:
 print(s1[0:2].count(raiz))
 
 """
-def list_media(a: list)-> int:
-    a.sort()
-    if len(a) % 2 == 1:
-        a.pop(len(a)//2)
-        
-        print(a)
-        sum = 0
-        for n in range(len (a)):
-            sum += a[n]
-        average = sum / len(a)
-        return average
-    else :
-        i = int(len(a) / 2) -1
-        return (a[i] + a[i+1]) / 2
-
-
-print(list_media([1,2,5,6]))

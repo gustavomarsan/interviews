@@ -17,13 +17,13 @@ the middle one is picked. If there is an even number of values, the median is th
 middle values.
 
 (solved with fixed sliding windows)
-
 """
 
 def list_media(a: list)-> int:
     a.sort()
     if len(a) % 2 == 1:
         a.pop(len(a)//2)
+        return sum(a)/len(a)
         sum = 0
         for n in range(len(a)):
             sum += a[n]
@@ -32,8 +32,6 @@ def list_media(a: list)-> int:
         i = int(len(a)/2) - 1
         return (a[i] + a[i+1]) / 2
         
-    
-
 def activityNotifications(expenditure: list, d: int) -> int:
     # Write your code here
     p1 = 0
@@ -43,7 +41,6 @@ def activityNotifications(expenditure: list, d: int) -> int:
             c +=1
         p1 += 1
     return c
-    
 
 expenditure = [2, 3, 4, 2, 3, 6, 8, 4, 5,]
 d = 5
