@@ -21,5 +21,5 @@ def is_sub_array(a: list, t: int)-> int :
 
 arr = [ 5, 2, 3, 2, 1, 2, 3]
 
-print(is_sub_array(arr, 3))
+print(is_sub_array(arr, 5))
 

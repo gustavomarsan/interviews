@@ -11,4 +11,4 @@ def factorial(n: int) -> int:
     return -1
 
 
-print(factorial(int(input())))
+print("Su factorial es:", factorial(int(input("Dame un numero: "))))

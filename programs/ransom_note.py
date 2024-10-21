@@ -16,11 +16,7 @@ def checkMagazine(magazine, note):
     # Write your code here
     dict_m = {}
     for item in magazine:
-        if item in dict_m:
-            dict_m[item] += 1
-        else:
-            dict_m[item] = 1
-        
+        dict_m[item] = dict_m.get(item, 0 ) +1
     for x in note:
         if x not in dict_m or dict_m[x] == 0:
             return "No"
@@ -32,6 +28,6 @@ def checkMagazine(magazine, note):
 
 a= "two times three is not four"
 
-b = "two times two is four"
+b = "two times not"
 
 print(checkMagazine(a, b))        

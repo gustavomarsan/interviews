@@ -15,39 +15,47 @@ cost_y = [2 1 3 1 4]
 cost_x = [4 1 2]
 
 """
+from heapq import heapify, heappop
 
 def boardCutting(cost_y: list, cost_x: list)-> int:
     # Write your code here
+    for n in range(len(cost_y)) :
+        cost_y[n] *= -1
+    for n in range(len(cost_x)) :
+        cost_x[n] *= -1
     cost = 0
     cut_y = 0
     cut_x = 0
-    cost_y.sort()
-    cost_x.sort()
+    heapify(cost_y)
+    heapify(cost_x)
     while cost_y and cost_x:
-        if cost_y[-1] > cost_x[-1] or (cost_y[-1] == cost_x[-1] and cut_x < cut_y):
-            c = cost_y.pop()
+        if cost_y[0]*-1 > cost_x[0]*-1  or (cost_y[0] == cost_x[0] and cut_x < cut_y):
+            c = -heappop(cost_y)
             cost += c + c * cut_x
             cut_y += 1
             continue
         else:
-            c = cost_x.pop()
+            c = -heappop(cost_x)
             cost += c + c * cut_y
             cut_x += 1
             continue
     while cost_y or cost_x:
         if cost_y and not cost_x:
-            c = cost_y.pop()
+            c = -heappop(cost_y)
             cost += c + c * cut_x
             cut_y += 1
         if not cost_y and cost_x:
-            c = cost_x.pop()
+            c = -heappop(cost_x)
             cost += c + c * cut_y
             cut_x += 1
     return cost
             
         
 
-cost_y = [71, 58, 61, 51, 33, 3, 43, 48, 94, 30, 29, 40, 59, 83, 12, 43, 64, 69, 64, 65, 42, 57, 40, 72, 64, 98, 98, 47, 56, 6, 85, 79, 65, 46, 30, 98, 49, 25, 98, 96, 7, 27, 88, 66, 10, 0, 62, 26, 69, 78, 92, 64, 87, 84, 88, 51, 35]
-cost_x = [87, 50, 91, 45, 35, 22, 62, 81, 53, 61, 83, 30, 59, 31, 38, 39, 19, 56, 1, 20, 70, 28, 41, 48, 72, 57, 35, 56, 46, 39, 91, 85, 41, 34, 30, 77, 57, 93, 10]
+cost_y = [41, 22, 12, 46, 29, 63, 43, 42, 17, 26, 90, 52, 72, 44, 69, 77, 31, 13, 5, 10, 86, 8, 78, 50, 9, 71, 89, 11, 60, 42, 77, 1, 16, 90, 48, 45, 5, 43, 88, 22, 69, 30, 26, 42, 74, 48, 71, 57, 13, 28, 67, 51, 89, 97]
+cost_x = [2, 50, 69, 91, 61, 81, 86, 91, 83, 2, 81, 31, 48, 86, 26, 88, 60, 96, 70, 38, 90, 44, 38, 13, 53, 51, 93, 73, 3, 82, 22, 57, 32, 91, 48, 46, 25, 34, 37, 8, 37, 70, 91, 37, 8, 17, 25, 68, 65, 95, 58, 55, 91, 97, 20, 96, 0, 14, 69, 3, 48, 92, 60, 81, 35, 61, 79]
+
+#cost_y = [1, 1, 2, 3, 4]
+#cost_x = [1, 2, 4]
 
 print(boardCutting(cost_y, cost_x))
