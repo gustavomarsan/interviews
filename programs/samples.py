@@ -40,36 +40,6 @@ for n in range(len(a)):
 print(a)
 
 
-
-
-a = "wednesday"
-my_set = {letter for letter in a}
-b = my_set.copy()
-my_set.discard("w")
-print("set a = ", my_set)
-print("set b = ",b)
-c = {1, 5, 3, 6, 8, 9}
-c = my_set.union(c)     # concatenate 2 sets
-print("set c = ", c)
-for val in c:           #iterate a set
-    print(val)
-
-my_list = [letter for letter in a]
-print(my_list)
-my_list.sort()
-print(my_list)
-
-my_dict = {i:1  for i in my_list}
-print(my_dict)
-my_dict.popitem()
-print(my_dict)
-print(my_dict.keys())
-
-
-
-
-
-print(0 % 2)
 a = "abdabdd"
 print(a.count("a"))
 print(a[0:3])
@@ -195,3 +165,59 @@ else:
 print(s1[0:2].count(raiz))
 
 """
+import random, time
+
+x = [1, 3, 4, 6, 8, 9, 9, 7, 6, 6, 6, 6, 2]
+a = "wednesday"
+my_set = {letter for letter in a}
+b = my_set.copy()
+my_set.discard("w")
+print("set a = ", my_set)
+print("set b = ",b)
+c = {1, 5, 3, 6, 8, 9}
+c = my_set.union(c)     # concatenate 2 sets
+d = {item for item in a}
+print(d)
+e = set()
+#e = {i for i in x}
+e = {i for i in x}
+print(e)
+e.discard(9)
+print(e)
+print("set c = ", c)
+print(random.choice(list(c)))
+for val in c:           #iterate a set, unordered
+    print(val)
+
+my_list = [letter for letter in a]
+print(my_list)
+print(my_list)
+
+my_dict = {i:1  for i in my_list}
+print(my_dict)
+print(my_dict.keys())
+my_dict.popitem()
+print(my_dict.keys())
+my_dict.popitem()
+print(my_dict.keys())
+my_dict.popitem()
+print(my_dict.keys())
+my_dict.popitem()
+print(my_dict.keys())
+print(my_dict)
+
+s = "0, 1, 2, 3, 4, 5, 6, 7, 8, 9"
+for i in range(len(s)//2) :
+    print(s[i], s[~i] )
+
+
+    timeout = 30   # [seconds]
+
+timeout_start = time.time()
+print(time.asctime())
+while time.time() < timeout_start + timeout:
+    test = 0
+    if test == 5:
+        break
+    test -= 1
+print(time.asctime())

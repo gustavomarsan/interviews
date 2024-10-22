@@ -26,6 +26,9 @@ def knigh_hops(x1, y1, x2, y2) -> int:
             if 0 <= x + col <=7 and 0 <= y+row <= 7 and board[row+y][col+x] == 0 :
                     board[row+y][col+x] = board[y][x]+1
                     queue.append((x+col, y+row))
+        for i in range(8) :
+            print(board[i])
+        print("----------------")
 
 print("movs =", knigh_hops(3,5,1,2))    # x, y order, knight and target
 
