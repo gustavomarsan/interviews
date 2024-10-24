@@ -24,6 +24,6 @@ def twoSum(nums, target):
         dict_nums[nums[i]] = i
     return None
 
-nums = [2,7,11,15] 
-target = 13
+nums = [2,7] 
+target = 9
 print(twoSum(nums, target))
