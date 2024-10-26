@@ -27,4 +27,4 @@ print(allunique(listanumeros))
 print(listanumeros)
 print(setnumeros)
 
-# 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 (django_ordenes_web. generado 16-10-24. exp en 30 dias)
+# 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 (django_ordenes_web. generado 24-10-24. exp en 30 dias)
