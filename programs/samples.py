@@ -164,7 +164,7 @@ else:
 
 print(s1[0:2].count(raiz))
 
-"""
+
 import random, time
 
 x = [1, 3, 4, 6, 8, 9, 9, 7, 6, 6, 6, 6, 2]
@@ -221,3 +221,15 @@ while time.time() < timeout_start + timeout:
         break
     test -= 1
 print(time.asctime())
+
+
+a = "a"
+from math import trunc
+print(trunc(6 / -132))
+import math, sys
+print(6 / -132)
+print(sys.version)
+
+"""
+
+print(False and True)
