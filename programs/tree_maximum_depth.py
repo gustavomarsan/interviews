@@ -18,7 +18,7 @@ def depth(root) :
     if root == None :
         return 0
     		
-    return max(depth(root.left) +1, depth(root.right) + 1 )
+    return  1 + max(depth(root.left), depth(root.right) )
 		
 def maxDepth(root):
     return depth(root) 
