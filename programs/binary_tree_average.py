@@ -43,6 +43,6 @@ a = Node(2)
 a.left = Node(4)
 a.right = Node(6)
 a.left.left = Node(8)
-a.right.right = Node(9)   
+a.left.right = Node(9)   
 
 print(averageOfLevels(a))
