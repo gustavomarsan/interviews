@@ -11,38 +11,35 @@ Example 2:
 Input: head = [5], left = 1, right = 1
 Output: [5]
 Note : check if left is in the begining of the list and if left is in the last element
+Constraints:
+The number of nodes in the list is n.
+1 <= n <= 500
+-500 <= Node.val <= 500
+1 <= left <= right <= n
 
 """
 from single_linked_lists import Node
-def reverseBetween(head: Node,  left: int, right: int) -> list[int] :
-    if left == right :          # there no reverse
-        return head
-    p1 = head
-    if left > 1 :               # to find the previous an the first node to reverse
-        for _ in range(left - 2) :
-            p1 = p1.next
-        left_point = p1         # left point is the previous node to reverse linked list
-        new_right = p1.next     # new right is the first node in the reverse that becames right
-    else :                      # if reverse node begin in first node
-        new_right = head
-        left_point = Node(0) 
-    previous = new_right
-    current = new_right.next
-    for _ in range(right - left) : # swap nodes pointers from 1st to last 
-        if current.next :
-            next_node = current.next
-        else :
-            next_node = None        # if linked list is finished next:node will be None
-        current.next = previous
-        previous = current
-        if current.next :
-            current = next_node
-    left_point.next = previous      # previous node to the reverse point to las in reverse
-    new_right.next = next_node      # new right point to the next element if there isn´t then none 
-    return head if left > 1 else left_point.next        # else is for reverse start in first element
 
+def reverseBetween(head: Node,  left: int, right: int) -> list[int] :
+    new_head = Node(0)          # add a previuse element to head   0 -> head
+    new_head.next = head  
+    prev = new_head
+    curr = head
+    for i in range(right ) :  # walk to reach right
+        next = curr.next
+        if i == left -1 :
+            left_point = prev       # is the node before the switch will start
+            left_node =  curr       # is the node where thje switch will start
+        if i > left -1 :
+            curr.next = prev        # reverse order in nodes betwen left and right
+        prev = curr
+        curr = next
+    left_point.next = prev          # connect with de right node to switch
+    left_node.next = next           # connect with the nodes behind the right node
+    return new_head.next         
 
 a = Node.list_builder()
-print(reverseBetween(a, 3, 5))
+print(a)
+print(reverseBetween(a, 2, 2))
 
 
