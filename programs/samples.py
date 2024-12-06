@@ -231,5 +231,6 @@ print(6 / -132)
 print(sys.version)
 
 """
-
-print(False and True)
+a = 33333333
+b = -float('inf')
+print(max(a,b))
