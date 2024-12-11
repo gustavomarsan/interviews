@@ -230,7 +230,8 @@ import math, sys
 print(6 / -132)
 print(sys.version)
 
+2,147,483,648
 """
-a = 33333333
-b = -float('inf')
-print(max(a,b))
+a = "-33333333"
+b = int(a)
+print(a,b, 2**31)
