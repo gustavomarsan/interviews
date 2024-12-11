@@ -1,4 +1,5 @@
 import random
+from collections import deque
 
 class Node:
     def __init__(self, data: int) -> None:
@@ -117,20 +118,23 @@ class Node:
         if root.right :
             Node.dfs_print(root.right)
 
-    def bfs_print(root, visited_nodes, a)-> list[int] :       # Breath First Search
-        if not root :
+    def bfs_print(visited_nodes, a)-> list[int] :       # Breath First Search
+        #exit
+        if not a :
             return
-        if a[0].left != None:
-            a.append(root.left)
-        if a[0].right != None:
-            a.append(root.right)
-        visited_nodes.append(a[0].data)
-        a.pop(0)
-
-        if len(a) > 0 :
-            Node.bfs_print(a[0], visited_nodes, a)
-        else :
-            print("BFS  --> ",visited_nodes)
+        # action
+        next = deque([])
+        while a :
+            element = a.popleft()
+            if element.left != None:
+                next.append(element.left)
+            if element.right != None:
+                next.append(element.right)
+            visited_nodes.append(element.data)
+        #recursion
+        Node.bfs_print(visited_nodes, next)
+        
+        return visited_nodes
 
     def is_balanced(a) -> bool :
         # stop
@@ -139,9 +143,8 @@ class Node:
         # operation
         if abs(Node.height(a.left) - Node.height(a.right)) >  1 :
             return False
-        else :
         # recursion
-            return Node.is_balanced(a.left) and  Node.is_balanced(a.right)
+        return Node.is_balanced(a.left) and  Node.is_balanced(a.right)
 
 def fill_numbers(a:Node)-> None:
     if a == None :
@@ -168,7 +171,7 @@ Node.insert(145, root)
 Node.insert(20, root)
 Node.insert(40, root)
 Node.insert(10, root)
-Node.insert(45, root)  #era 45
+Node.insert(45, root)  
 Node.insert(50, root)
 Node.insert(5, root)
 Node.insert(35, root)
@@ -189,10 +192,10 @@ print("Height : ",Node.height(root))
 Node.dfs_print(root)
 print(" ")
 
-a = [root]
+a = deque([root])
 visited_nodes = []
-Node.bfs_print(root, visited_nodes, a)
-print(Node.is_balanced(root))
+print("bfs:", Node.bfs_print(visited_nodes, a))
+print("Balanceado?:", Node.is_balanced(root))
 
 print(get_random(root))
 #print(Node.find(5, root))
