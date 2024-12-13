@@ -11,7 +11,7 @@
 class Appoint:
     def __init__(self) -> None :
         self.hours = [0] * 24
-        self.meetings = 0
+        self.meetings = 0               # counting the appoinments 
         
     def schedule(self, init: float, long: float) -> None :
         while long > 0 :
@@ -25,12 +25,26 @@ class Appoint:
             init += 1
 
     def is_full(self) -> bool :     # check is there a free space for an appoinment
-        return self.meetings == 24
+        return self.meetings == 24  
+        #return self.hours.count(0) == 0
+    
+class Appoint_2:            # in this case if appoint is partial time I block the whole hour
+    def __init__(self) -> None :
+        self.hours = [0] * 24
+        
+    def schedule(self, init: float, long: float) -> None :
+        while long > 0 and self.hours[init] == 0 :
+            self.hours[init] = 1
+            long -= 1
+            init += 1
+
+    def is_full(self) -> bool :     # check is there a free space for an appoinment
+        return self.hours.count(0) == 0     # counts 0s, if there is not a 0 there isn´t a free hour, it is full
     
 a = Appoint()
 
-print(a.hours)
-a.schedule(0,1)
+print("a", a.hours)
+a.schedule(0,3.5)
 a.schedule(4, 1.5)
 a.schedule(12, 1.5)
 a.schedule(23, 1)
@@ -38,16 +52,37 @@ a.schedule(10, 2)
 a.schedule(9, 1)
 a.schedule(22, 1)
 
-#print("Is full:", Appoint.is_full(a))
-
-
-print(a.hours)
-print("Is full:", Appoint.is_full(a))
+print("Is a full:", a.is_full())
+print("a", a.hours)
+print("Is a full:", a.is_full())
 
 for n in range(24) :
     if a.hours[n] == 0 :
         a.schedule(n, 1) 
 
-print(a.hours)
-print("Is full:", Appoint.is_full(a))
+print("a", a.hours)
+print("Is a full:", a.is_full())
+
+b = Appoint_2()
+
+print("b", b.hours)
+b.schedule(0, 3.5)
+b.schedule(5, 3.5)
+b.schedule(12, 1.5)
+b.schedule(23, 1)
+b.schedule(10, 2)
+b.schedule(9, 1)
+b.schedule(22, 1)
+
+print("Is b full:", b.is_full())
+print("b", b.hours)
+print("Is b full:", b.is_full())
+
+for n in range(24) :
+    if b.hours[n] == 0 :
+        b.schedule(n, 1) 
+
+print("b", b.hours)
+print("Is b full:", b.is_full())
+
 
