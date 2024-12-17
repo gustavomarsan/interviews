@@ -11,7 +11,7 @@ Output: [1,2]
 ***** Keys : Ordered list. No extra space shoul be used ****
 """
 
-def two_sum(numbers, target) :
+def two_sum(numbers:list[int] , target: int)-> list[int]:
     p1 = 0
     p2 = 1
     up = True       # it control if it is posible to continue growing p2. when sum > target it is imposible to grow p2
@@ -28,5 +28,19 @@ def two_sum(numbers, target) :
             p1 += 1
     return
 
+def two_sum2(numbers:list[int] , target: int)-> list[int]:
+    p1 = 0
+    p2 = len(numbers) -1
+    while p1 < p2 :
+        sum = numbers[p1] + numbers[p2]
+        if sum == target :
+            return[p1+1, p2+1]
+        elif sum > target :       # decrease p2 
+            p2 -= 1
+        else :          #when we just can grow up p1 to reach the index
+            p1 += 1
+        
+
 numbers = [12,13,23,28,43,44,59,60,61,68,70,86,88,92,124,125,136,168,173,173,180,199,212,221,227,230,277,282,306,314,316,321,325,328,336,337,363,365,368,370,370,371,375,384,387,394,400,404,414,422,422,427,430,435,457,493,506,527,531,538,541,546,568,583,585,587,650,652,677,691,730,737,740,751,755,764,778,783,785,789,794,803,809,815,847,858,863,863,874,887,896,916,920,926,927,930,933,957,981,997]
 print(two_sum(numbers, 542))
+print(two_sum2(numbers, 542))

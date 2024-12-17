@@ -10,12 +10,17 @@ Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 Example 2:
 Input: nums = [3,2,4], target = 6
 Output: [1,2]
+
+[2, 3, 4]
+       *
+target = 6
+dict_nums = {2 : 0, 3: 1}
 i = 2
-number = 7
-[2, ]
+diff = 2  
+(0, 2)
 """
 
-def twoSum(nums, target):
+def twoSum(nums: list[int], target: int)-> list[int]:
     dict_nums = {}
     for i in range(len(nums)) :
         diff = target - nums[i]
@@ -24,6 +29,6 @@ def twoSum(nums, target):
         dict_nums[nums[i]] = i
     return None
 
-nums = [2,7] 
-target = 9
+nums = [2, 3, 4] 
+target = 6
 print(twoSum(nums, target))
