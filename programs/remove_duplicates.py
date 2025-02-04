@@ -12,24 +12,33 @@ Output: 5, nums = [1,1,2,2,3,_]
 """
 
 def removeDuplicates(nums):
-    p1 = 2
+    i = 2  # i for index, begin in 2 because loop checks 2 previous index
     k = len(nums)
-    while p1 < k :
-        if nums[p1] == nums[p1-1] and nums[p1] == nums[p1-2] :
+    while i < k :   
+        if k < len(nums) :
+            nums[i] = nums[i+len(nums) - k]  
+        if nums[i] == nums[i-1] and nums[i] == nums[i-2] :  
             k -= 1
-            p2 = p1 
-            temp = nums[p1]
-            while p2 < len(nums) -1 :
-                nums[p2] = nums[p2+1]
-                p2 +=1
-            nums[p2] = temp
+            if i < k : 
+                nums[i] = nums[k]  
         else :
-            p1 += 1
-            continue
-    print(nums)
+            i += 1  
+    print(nums[:k])
     return k
     
+def removeDuplicates_2(nums):
+    repeated = 0
+    for i in range(2, len(nums)):
+        if nums[i] == nums[i-1] and nums[i] == nums[i-2] : 
+            repeated += 1 
+        elif repeated > 0 :
+            nums[i-repeated] = nums[i]
+            nums[i] = None
+    print(nums[:len(nums)- repeated])
+    return len(nums)-repeated
 
-a = [0, 0, 1, 1, 1, 1, 2, 3, 3]
+
+a = [1,1,1,2,2,2,3,3]
 print(removeDuplicates(a))
+print(removeDuplicates_2(a))
         
