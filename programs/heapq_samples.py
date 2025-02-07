@@ -1,6 +1,6 @@
 from heapq import heapify, heappop, heappush
 
-a = [4, 2, 8, 9, 23, 26, 7]
+a = [8, 9, 23, 26, 2, 4, 7]
 
 heapify(a)
 print(a)
@@ -11,7 +11,7 @@ print(a)
 
 x  = heappop(a)
 
-heappop(a)
+#heappop(a)
 
 print(x)
 print(a)
