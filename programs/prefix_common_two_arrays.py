@@ -35,25 +35,23 @@ def findThePrefixCommonArray(A: list[int], B: list[int]) -> list[int]:
     for i in range(len(A)) :            # read A and B and add elements to its set
         set_a.add(A[i])
         set_b.add(B[i])
-        common = 0
-        for value in set_a :            # chek
-            if value in set_b :
-                common += 1
-        result[i] = common
+        #common = set_a.intersection(set_b)
+        common = set_a & set_b
+        result[i] = len(common)
     return result
 
 # O(n) complexity. Only one loop, but using extra space for set number of appareances of elements. If one elements appear mor than 1 time is added 1 to common and set to result
 def findThePrefixCommonArray_2(A: list[int], B: list[int]) -> list[int]:
     result = [0] * len(A)
-    frequency = [0] * (len(A) +1)
+    frequency_set = {}
     common = 0
     for i in range(len(A)) :
-        frequency[A[i]] += 1
-        if frequency[A[i]] > 1 :
+        frequency_set[A[i]] = frequency_set.get(A[i], 0) +1
+        if frequency_set[A[i]] > 1 :
             common +=1
             
-        frequency[B[i]] += 1
-        if frequency[B[i]] > 1 :
+        frequency_set[B[i]] = frequency_set.get(B[i], 0) +1
+        if frequency_set[B[i]] > 1 :
             common +=1
             
         result[i] = common

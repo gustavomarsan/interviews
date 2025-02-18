@@ -10,7 +10,7 @@ Output: false
 
 in ordered way
 """
-
+# O(nxm)  = O(n^2)
 def isSubsequence(s, t):
     pointer = 0
     founds = 0
@@ -24,7 +24,24 @@ def isSubsequence(s, t):
 
     return founds == len(s)
         
+# O(n)
+def isSubsequence_2(s, t):
+    s_dict = {}
+    t_dict = {}
+    for item in s :
+        s_dict[item] = s_dict.get(item, 0) + 1
+    for item in t :
+        t_dict[item] = s_dict.get(item, 0) + 1
 
-s = "abc" 
+    for key, value in s_dict.items() :
+        if key not in t_dict or value > t_dict[key] :
+            return False
+    return True
+
+
+#s = "abc" 
+#t = "ahbgdc"
+s = "aaxc"
 t = "ahbgdc"
 print(isSubsequence(s, t))
+print(isSubsequence_2(s, t))
