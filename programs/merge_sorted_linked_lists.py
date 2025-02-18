@@ -31,6 +31,7 @@ def mergeKLists(lists: list[Node])-> Node:
     new_ll  = Node(0)
     prev = new_ll
     while my_list :
+        print(my_list)
         _, index = heappop(my_list)
         prev.next = lists[index]
         prev = prev.next

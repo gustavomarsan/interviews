@@ -10,35 +10,40 @@ Input: nums = [1,1,1,2,2,3]
 Output: 5, nums = [1,1,2,2,3,_]
 
 """
-
+# it allows 2 elements per list
 def removeDuplicates(nums):
     i = 2  # i for index, begin in 2 because loop checks 2 previous index
-    k = len(nums)
-    while i < k :   
-        if k < len(nums) :
-            nums[i] = nums[i+len(nums) - k]  
-        if nums[i] == nums[i-1] and nums[i] == nums[i-2] :  
-            k -= 1
-            if i < k : 
-                nums[i] = nums[k]  
+    active = len(nums)
+    while i < active :   
+        eliminated = len(nums) - active
+        if eliminated > 0 :     # move elements each loop if there is eliminated values
+            nums[i] = nums[i+ eliminated]  
+        if nums[i] == nums[i-1] and nums[i] == nums[i-2] :      # don't ibcrease index i
+            active -= 1
         else :
             i += 1  
-    print(nums[:k])
-    return k
-    
-def removeDuplicates_2(nums):
-    repeated = 0
-    for i in range(2, len(nums)):
-        if nums[i] == nums[i-1] and nums[i] == nums[i-2] : 
-            repeated += 1 
-        elif repeated > 0 :
-            nums[i-repeated] = nums[i]
-            nums[i] = None
-    print(nums[:len(nums)- repeated])
-    return len(nums)-repeated
+    print(nums[:active])
+    return active
+
+# it allows 1 elements per list
+def removeDuplicates_1(nums):
+    i = 1  # i for index, begin in 1 because loop checks 1 previous index
+    active = len(nums)
+    while i < active :   
+        eliminated = len(nums) - active
+        if eliminated > 0 :     # move elements each loop if there is eliminated values
+            nums[i] = nums[i+ eliminated]  
+        if nums[i] == nums[i-1] :            # don't ibcrease index i
+            active -= 1
+        else :
+            i += 1  
+    print(nums[:active])
+    return active
 
 
-a = [1,1,1,2,2,2,3,3]
+
+a = [1,1,1,1,2,2,2,2,3,3,3,3]
+b = [1,1,1,2,2,2,3,3]
 print(removeDuplicates(a))
-print(removeDuplicates_2(a))
+print(removeDuplicates_1(b))
         

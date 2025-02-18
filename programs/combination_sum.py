@@ -31,12 +31,13 @@ def backtracking(candidates, target, acum, partial, results, index) :
     if acum > target :
         return 
     if acum == target :
-        results.append([x for x in partial])  #append a copy of list partial because partial list will be modified
+        results.append(list(partial))  #append a copy of list partial because partial list will be modified
         return 
     # bakctracking
     for i in range(index, len(candidates)) :        # backtrackig for numbers from index forwards, not from beginning
         acum += candidates[i]
         partial.append(candidates[i])
+        print(partial)
         backtracking(candidates, target, acum, partial, results, i)
         acum -= candidates[i]
         partial.pop()
