@@ -25,15 +25,9 @@ def maxArea(height: list[int])-> int :
     while left < right :
         volume = max(volume, (right - left) * min (height[left], height[right]))
         if height[left] <= height[right] :
-            p = left + 1
-            while p <= right and height[p] <= height[left] :
-                p += 1
-            left = p
+            left += 1
         else :
-            p = right - 1
-            while p >= left and height[p] <= height[right] :
-                p -= 1
-            right = p
+            right -= 1
     return volume
 
 height = [1,9,6,2,5,1,8,3,7]

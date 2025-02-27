@@ -232,6 +232,31 @@ print(sys.version)
 
 2,147,483,648
 """
-a = "-33333333"
-b = int(a)
-print(a,b, 2**31)
+
+total_chars_words = 7
+maxWidth =  16
+paragraph = ["shall", "be"]
+print(paragraph)
+
+words = len(paragraph)
+spaces = len(paragraph) -1
+print("words", words, "spaces", spaces)
+free_chars = maxWidth - total_chars_words - spaces
+spaces_list = []
+for i in range(spaces) :
+    spaces_list.append(" ")
+i = 0
+print(spaces_list)
+while free_chars > 0 :
+    spaces_list[i%len(spaces_list)] = spaces_list[i%len(spaces_list)]+" "
+    i +=1
+    free_chars -= 1
+new_string = ""
+for i in range(len(paragraph) -1) :
+    new_string += paragraph[i]
+    new_string += spaces_list[i]
+new_string += paragraph[-1]
+
+
+
+print(new_string)
