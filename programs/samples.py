@@ -231,7 +231,7 @@ print(6 / -132)
 print(sys.version)
 
 2,147,483,648
-"""
+
 
 total_chars_words = 7
 maxWidth =  16
@@ -256,7 +256,10 @@ for i in range(len(paragraph) -1) :
     new_string += paragraph[i]
     new_string += spaces_list[i]
 new_string += paragraph[-1]
-
-
-
 print(new_string)
+"""
+print("hello"'word'*2)
+
+a = 7
+print(a.__str__())
+

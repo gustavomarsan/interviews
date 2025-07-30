@@ -19,6 +19,8 @@ Example 3:
 
 def isPalindrome(s: str)-> bool :
     new_s = [char for char in s.lower() if char.isalnum()]
+    print(s.lower())
+    print(new_s)
     for i in range(len(new_s) // 2) :
         if new_s[i] != new_s[~i] :
             return False

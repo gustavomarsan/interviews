@@ -20,25 +20,35 @@ letters = [[], [], [a,b,c], [d,e,f], [g,h,i], [j,k,l], [m,n,o], [p,q,r,s], [t,u,
  2<= numbers <= 9
 
 """
-def backtracking(digits: str, results: list[str], partial: list[str], index: int) -> list[str]:
-    letters = [[], [], ["a","b","c"], ["d","e","f"], ["g","h","i"], ["j","k","l"], ["m","n","o"], ["p","q","r","s"], ["t","u","v"], ["w","x","y","z"]]
+def backtracking(digits: str, results: list[str], partial: list[str]) -> list[str]:
+    my_dict = {
+            "2": "abc",
+            "3": "def",
+            "4": "ghi",
+            "5": "jkl",
+            "6": "mno",
+            "7": "pqrs",
+            "8": "tuv",
+            "9": "wxyz",
+    }
 	#stop backtracking
     if len(partial)  == len(digits) :
         if partial :
             results.append("".join(partial))
         return results
-    element = int(digits[index])
-    for i in range(len(letters[element])) :
-        partial.append(letters[element][i])
+    #element = int(digits[len(partial)])
+    letters = my_dict[digits[len(partial)]]
+    for letter in letters:
+        partial.append(letter)
         # backtracking
-        backtracking(digits, results, partial, index+1)
+        backtracking(digits, results, partial)
         partial.pop()
     return results
 
 def letterCombinations(digits):
-    return backtracking(digits, [], [], 0)    
+    return backtracking(digits, [], [])    
 
 
-digits = "23"
+digits = "234"
 print(letterCombinations(digits))
         
