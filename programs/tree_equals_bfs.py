@@ -16,20 +16,32 @@ Constraints:
 The number of nodes in both trees is in the range [0, 100].
 -104 <= Node.val <= 104
 
-This solution is by recursion
+This solution is by iteretively
 """
 from binary_tree_base import Node
+from collections import deque
     
-def equals(a, b) -> bool :
-        # stop
-        if a == None and b == None :
-            return True
-        # case base
-        if a == None or b == None :
-            return False
-        # case base and recursion
-        return a.data == b.data and equals(a.left, b.left) and equals(a.right, b.right) 
-        
+def equals(p, q) -> bool :
+        deque_p = deque([])
+        deque_q = deque([])
+        deque_p.append(p)
+        deque_q.append(q)
+        while deque_p and deque_q:
+            p_n = deque_p.popleft()
+            q_n = deque_q.popleft()
+            if p_n is None and q_n is None:
+                continue
+            if p_n is None or q_n is None:
+                return False
+            if p_n.data == q_n.data:
+                deque_p.append(p_n.left)
+                deque_p.append(p_n.right)
+                deque_q.append(q_n.left)
+                deque_q.append(q_n.right)
+            else:
+                return False
+            
+        return True  
 
             
             

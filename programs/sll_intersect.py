@@ -1,4 +1,7 @@
 """""
+160. Intersection of Two Linked Lists
+https://leetcode.com/problems/intersection-of-two-linked-lists/
+
 given 2 sll determinate if they have an intersection, if yes return de Node if not return None
 
 example 1:
@@ -30,12 +33,9 @@ def intersect(a: Node, b: Node) -> Node :
     lb = lenght(b)
 
     if lb > la :
-        temp = a
-        a = b
-        b = temp
-    dif = abs(la - lb)
-
-    for n in range(dif) :
+        a, b = b, a
+        
+    for n in range(abs(la - lb)) :
         a = a.next
 
     while a :
@@ -54,7 +54,7 @@ a.next.next.next.next = Node("e")
 
 b = Node("h")
 b.next = Node("g")
-b.next.next = a.next.next
+b.next.next = a.next.next   # existent Node(c)
 
 print(intersect(a, b))
 
