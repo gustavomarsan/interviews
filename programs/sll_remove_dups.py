@@ -3,22 +3,13 @@ from single_linked_lists import Node
 
 def remove_duplicates(head: Node) -> None:
     p1 = head  # p1 is ponter 1
-    while p1 and p1.next:
-        p2 = p1  # p2 is ponter 2
-        while p2.next:
-            if p1.data == p2.next.data:
-                if p2.next.next == None:    # in case you are deleting the last node
-                    p2.next = None  # p2
-                    break
-                else:
-                    p2.next = p2.next.next
-                    continue
-            p2 = p2.next
-
-        # Maybe when loop while p1.next began, p1.next had some value and after change to None. Validate
-        if p1.next :
-            p1 = p1.next
-
+    while p1:
+        while p1.next and p1.data == p1.next.data :
+            p1.next = p1.next.next
+        
+        p1 = p1.next
+        
+    return head
 
 h = Node.list_builder()
 print(h)
