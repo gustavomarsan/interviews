@@ -31,3 +31,6 @@ def product_except_self(nums: list)-> list :
 
 nums = [2, 2, 3, 4,]
 print(product_except_self(nums))
+
+assert product_except_self([2, 2, 3, 4]) == [24, 24, 16, 12]
+assert product_except_self([-1, 1, 0, 3, -3]) == [0, 0, 9, 0, 0]

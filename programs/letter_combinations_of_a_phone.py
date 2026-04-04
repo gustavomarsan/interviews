@@ -50,5 +50,7 @@ def letterCombinations(digits):
 
 
 digits = "234"
-print(letterCombinations(digits))
+result=letterCombinations(digits)
+print(len(result))
+print(result)
         

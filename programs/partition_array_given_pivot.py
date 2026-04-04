@@ -44,6 +44,10 @@ def pivotArray(nums: list[int], pivot: int) -> list[int]:
     new_nums.extend(greater)
     return new_nums
 
+def pivotArray2(nums: list[int], pivot: int)-> list:
+    return [num for num in nums if num < pivot] + [num for num in nums if num == pivot] + [num for num in nums if num > pivot]
+
 
 nums = [9,12,5,10,14,3,10]
 print(pivotArray(nums, 10))
+print(pivotArray2(nums, 10))
