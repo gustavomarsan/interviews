@@ -35,3 +35,8 @@ def rob_house(nums: list[int]) -> int :     # using 2 vars for extra space      
 a = [2,7,9,3,1]
 print(rob(a))
 print(rob_house(a))
+
+assert rob_house([1,4,5,1]) == 6
+assert rob_house([2,7,9,3,1]) == 12
+assert rob([1,4,5,1]) == 6
+assert rob([2,7,9,3,1]) == 12
