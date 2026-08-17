@@ -14,4 +14,3 @@ def get_name(first_name: str, last_name: str)-> str:
   
   
 print(get_name("pablo", "gomez"))
-
